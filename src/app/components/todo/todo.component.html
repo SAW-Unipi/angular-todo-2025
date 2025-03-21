@@ -1,0 +1,16 @@
+<div class="item">
+    @if (editMode) {
+    <input class="text-input hidden"
+           [formControl]="textControl"
+           (keyup)="onKeyUp($event)"
+           type="text">
+    } @else {
+    <div>
+        <input type="checkbox"
+               (change)="toggleState()"
+               [checked]="checked()">
+        <span [class.completed]="checked()">{{ todo().text }}</span>
+        <button (click)="listService.removeTodo(listId(), todo().id)">&times;</button>
+    </div>
+    }
+</div>

@@ -1,0 +1,11 @@
+<h1>SAW TODO</h1>
+<div class="container">
+    <input type="text"
+           [formControl]="nameControl"
+           (keyup)="onKeyUp($event)"
+           class="text-input"
+           placeholder="Inserisci lista...">
+    @for (list of listService.lists(); track list.id) {
+    <app-list [list]="list"></app-list>
+    }
+</div>

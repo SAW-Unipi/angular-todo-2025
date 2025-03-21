@@ -1,0 +1,27 @@
+<header>
+    <h1>SAW TODO</h1>
+    <h2>HTML</h2>
+    <button class="btn"
+            (click)="router.navigateByUrl('/')">
+        <app-back-icon />
+    </button>
+</header>
+<div class="container">
+    <input type="text"
+           class="text-input"
+           [formControl]="textControl"
+           (keyup)="onKeyUp($event)"
+           placeholder="Inserisci todo...">
+
+    <section class="todos">
+        <ul>
+            @for (todo of todos(); track todo.id) {
+            <li>
+                <app-todo [listId]="id()"
+                          [todo]="todo" />
+            </li>
+            }
+        </ul>
+    </section>
+
+</div>
